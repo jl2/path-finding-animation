@@ -1,0 +1,24 @@
+* path-finding-animation
+** About
+A package to animate path finding and obstacle avoidance algorithms.
+
+** Example
+#+BEGIN_SRC lisp
+(ql:quickload :path-finding-animation)
+(pfa:create-animation)
+#+END_SRC
+
+#+RESULTS:
+: NIL
+
+** License
+ISC
+
+
+Copyright (c) 2020 Jeremiah LaRocco <jeremiah_larocco@fastmail.com>
+
+
+
+
+* Plan
+** TODO Implement simple path finding.

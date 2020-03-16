@@ -16,6 +16,6 @@
 ;; OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 (defpackage :path-finding-animation
-  (:use #:cl #:j-utils #:alexandria #:newgl)
+  (:use #:cl #:j-utils #:alexandria #:newgl #:3d-vectors)
   (:nicknames #:pfa)
   (:export #:create-animation))

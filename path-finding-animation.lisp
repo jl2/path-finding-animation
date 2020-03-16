@@ -17,6 +17,13 @@
 
 (in-package :path-finding-animation)
 
-(defun create-animation ()
+(defun create-animation (n)
   "Create a path finding animation."
-  nil)
+  (let ((lines (make-line-segments)))
+    (dotimes (i n)
+      (newgl:add-line-2 lines
+                  :p1 (vec3-random -0.98 0.98)
+                  :p2 (vec3-random -0.98 0.98)
+                  :c1 (vec4-random 0.2 0.8)
+                  :c2 (vec4-random 0.2 0.8)))
+    lines))

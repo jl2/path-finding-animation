@@ -28,4 +28,4 @@
 (in-suite :path-finding-animation)
 
 (test create-animation
-  (is-true (null (pfa:create-animation))))
+  (is-true (pfa:create-animation 100)))

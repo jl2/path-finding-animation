@@ -20,8 +20,10 @@
 
 (defclass path-animation (newgl:line-segments)
   ((radius :initform 20.0 :initarg :radius)
-   (theta :initform (/ pi 3) :initarg :theta) ;; Rotation around x axis
-   (gamma :initform (/ pi 3) :initarg :gamma) ;; Rotation around y axis
+   (theta :initform 0.0 ;; (/ pi 3)
+          :initarg :theta) ;; Rotation around x axis
+   (gamma :initform 0.0 ;; (/ pi 3)
+          :initarg :gamma) ;; Rotation around y axis
    (rotating :initform nil :initarg :rotating)))
 
 (defun torus (tv)
@@ -83,14 +85,11 @@
                           ;;(ftv (funcall function tv))
                           (nftv (funcall function ntv))
                           (fdiff (v- nftv pftv)))
-
-                     ;; (multiple-value-bind (fi si)
-                         (newgl:add-line-2 lines
-                                                                    :p1 ptv
-                                                                    :p2 (v+ tv fdiff)
-                                                                    :c1 (vec4 0.1 0.8 0.1 0.0)
-                                                                    :c2 (vec4 0.1 0.8 0.1 1.0))
-                       ;; (newgl:add-line-by-pt-index-2 lines si
+                     (newgl:add-line-2 lines
+                                       :p1 ptv
+                                       :p2 (v+ tv fdiff)
+                                       :c1 (vec4 0.1 0.8 0.1 0.0)
+                                       :c2 (vec4 0.1 0.8 0.1 1.0))
                      ))))
     lines))
 
@@ -101,9 +100,10 @@
                  (m*
                   (3d-matrices:mscaling (vec3 newgl:aspect-ratio 1.0 1.0))
                   (3d-matrices:mperspective 45 newgl:aspect-ratio 0.10 200.0)
+
+                  (3d-matrices:mrotation (vec3 1 0 0) theta)
                   (mtranslation (vec3 0.0 0.0 (- radius)))
                   (3d-matrices:mrotation (vec3 0 1 0) gamma)
-                  (3d-matrices:mrotation (vec3 0 0 1) theta)
                   newgl:xform))))
 
 

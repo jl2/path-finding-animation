@@ -21,7 +21,7 @@
   :license  "ISC"
   :version "0.0.1"
   :serial t
-  :depends-on (#:newgl #:alexandria #:j-utils)
+  :depends-on (#:newgl #:alexandria #:j-utils #:3d-vectors #:3d-matrices)
   :components ((:file "package")
                (:file "path-finding-animation"))
   :in-order-to ((test-op (test-op path-finding-animation.test))))
